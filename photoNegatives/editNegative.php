@@ -7,10 +7,6 @@ include('includes/database.php');
 require_once 'includes/database.php';
 require_once 'includes/header.php';
 
-$sql = "SELECT * FROM negatives WHERE id='$ID'";
-
-$query = $conn->query($sql);
-
 if (!$query) {
     $errno = $conn->connect_errno;
     $errmsg = $conn->connect_error;
@@ -55,21 +51,18 @@ if (!$query) {
                         <td><textarea rows="4" cols="30" name ="description" value="<?php echo $row['Description'] ?>"></textarea></td>
                     </tr>
                     <tr>
-            <td><input class='btn btn-success' type="submit" value="Update" /></td>
-            <td><input class='btn btn-info'type="button" value="Cancel" onclick="window.location.href = 'index.php'" /></td>
+                        <td><input class='btn btn-success' type="submit" value="Update" /></td>
+                        <td><input class='btn btn-info'type="button" value="Cancel" onclick="window.location.href = 'index.php'" /></td>
                     </tr>
-                   
+
                 </table>
             </form>
 
             <br/>
 
             <?php
-            echo "<td><a class='btn btn-danger' href=userdelete.php?id=", $row['ID'], ">Delete</a></td>";
-            
-            echo "<br/>";
-            echo "<br/>";
-            
+
+
             echo "<a class='btn btn-info' href='negativeList.php'>View Negatives</a>";
             ?>    
         </div>

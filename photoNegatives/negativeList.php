@@ -1,5 +1,4 @@
 <?php
-
 require_once ('includes/header.php');
 require_once('includes/database.php');
 
@@ -34,7 +33,7 @@ if (!$query) {
     //insert a row into the table for each row of data
     while (($row = $query->fetch_assoc()) !== NULL) {
         echo "<tr>";
-        echo "<td><a href=negativeDetails.php?id=", $row['ID'], ">", $row['ID'], "</td>";
+        echo "<td><a href=negativeDetails.php?id=", $row['id'], ">", $row['id'], "</td>";
         echo "<td>", $row['LastName'], "</td>";
         echo "<td>", $row['FirstName'], "</td>";
         echo "<td>", $row['DateTaken'], "</td>";
@@ -48,7 +47,6 @@ if (!$query) {
 </table>
 
 <?php
-
 // clean up resultsets when we're done with them!
 $query->close();
 

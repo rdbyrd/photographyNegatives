@@ -13,7 +13,7 @@ $description = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'descript
 
 
 //insert statement. The id field is an auto field.
-$sql = "INSERT INTO negatives VALUES (NULL, '$lastName', '$firstName', '$dateTaken', '$fee' , '$negativeNum', '$jobType', '$description')";
+$sql = "INSERT INTO negatives VALUES (NULL, '$lastName', '$firstName', '$dateTaken', '$fee', '$negativeNum', '$jobType', '$description')";
 
 //execut the insert query
 $query = @$conn->query($sql);

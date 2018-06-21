@@ -20,7 +20,7 @@ if (!$query) {
     $errmsg = $conn->error;
     echo "Selection failed with: ($errno) $errmsg<br/>\n";
     $conn->close();
-    
+
     //include the footer
     require_once ('includes/footer.php');
     exit;
@@ -29,19 +29,19 @@ if (!$query) {
 //display results in a table
 ?>
 <style>
-/*    table, th, td {
-        border: 1px solid black;
-    }
-    td {
-        vertical-align: bottom;
-    }*/
+    /*    table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            vertical-align: bottom;
+        }*/
 </style>
 <h2 class="jumbotron">Negative Details</h2>
 
 <table align="center">
     <tr>
         <th>ID</th>
-        <td><?php echo $row['ID'] ?></td>
+        <td><?php echo $row['id'] ?></td>
     </tr>
     <tr>
         <th>Lastname</th>
@@ -75,9 +75,10 @@ if (!$query) {
 <p align="center">
 
 <form action="deleteNegative.php" onsubmit="return confirm('Confirm this action if you wish to delete history.')" align='center'>
-    <input type="submit" value="Delete">&nbsp;&nbsp;
-    <input type="button" onclick="window.location.href = 'negativeList.php'" value="Cancel">
-    <input type="hidden" name="id" value="<?php echo $row['ID'] ?>">
+    <?php echo "<a class='btn btn-info' href=editNegative.php?id=", $row['id'], ">Edit Negative</a>"; ?>
+    <input type="button" onclick="window.location.href = 'negativeList.php'" class='btn btn-info' value="Cancel"><br/><br/>
+    <input type="submit" class='btn btn-danger' value="Delete">&nbsp;&nbsp;
+    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 </form>
 </p>
 

@@ -11,7 +11,7 @@ $negativeNum = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'negative
 $jobType = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'jobtype', FILTER_SANITIZE_STRING)));
 $description = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
-$id = $_POST['id'];
+$id = $_POST['ID'];
 echo $lastName;
 echo $firstName;
 echo $dateTaken;
@@ -20,7 +20,7 @@ echo $negativeNum;
 echo $jobType;
 echo $description;
 
-$sql = "UPDATE negatives SET lastname = '$lastName', firstname ='$firstName' datetaken='$dateTaken', fee='$fee', negativenum='$negativeNum', jobtype='$jobType', description='$description' WHERE id =$id";
+$sql = "UPDATE negatives SET lastname = '$lastName', firstname ='$firstName' datetaken='$dateTaken', fee='$fee', negativenum='$negativeNum', jobtype='$jobType', description='$description' WHERE id =$ID";
     
 //execut the insert query
 $query = @$conn->query($sql);
