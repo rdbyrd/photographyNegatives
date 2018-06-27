@@ -3,7 +3,12 @@
 //include code database.php
 require_once('includes/database.php');
 
-$id = $_GET['id'];
+$id = ''; 
+if( isset( $_POST['id'])) {
+    $id = $_POST['id']; 
+} else {
+    echo "Did not post an id.";
+}
 
 $familyname = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'familyname', FILTER_SANITIZE_STRING)));
 $firstname = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING)));
@@ -25,7 +30,7 @@ if (!$query) {
     $error = $conn->error;
     $error = "Insertion failed with: ($errno) $error.";
     $conn->close();
-    header("Location: error.php?m=$error");
+    header("Location: negativeList.php");
     die();
 }
 

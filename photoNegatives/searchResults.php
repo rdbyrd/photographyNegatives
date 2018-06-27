@@ -19,7 +19,7 @@ include('includes/database.php');
                     $queryResult = mysqli_num_rows($result);
 
                     echo $queryResult . " results found. <hr/>";
-                                        
+
                     if ($queryResult > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<div><a href='editNegative.php?id=" . $row['id'] . "&negativenum=" . $row['negativenum'] . "'><h3>" . $row['negativenum'] . "</a></h3>
@@ -41,5 +41,4 @@ include('includes/database.php');
     </div>
 </body>
 <?php
-
 include('includes/footer.php');

@@ -31,7 +31,7 @@ include 'includes/header.php';
                     <input type="text" name ="jobtype"><br/>
 
                     <label for='description'>Description:</label>
-                    <textarea rows="4" cols="30" name ="description"></textarea><br/><br/>
+                    <input type="text" name ="description"><br/><br/>
 
                     <div class='button'>
                         <button type="submit" class="btn btn-success" value="submit">Submit</button>

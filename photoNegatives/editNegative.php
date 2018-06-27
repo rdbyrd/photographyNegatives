@@ -25,7 +25,7 @@ if (!$query) {
             <br/>
             <br/>
             <h2>Update Information</h2>
-            <form action="manageEdit.php" method="get">
+            <form action="manageEdit.php" method="post">
                 <table>
                     <tr>
                         <td>Family Name: </td>
@@ -37,11 +37,11 @@ if (!$query) {
                     </tr>
                     <tr>
                         <td>Date Taken: </td>
-                        <td><input name="datetaken" type="date" value="<?php echo $row['datetaken'] ?>"></td>
+                        <td><input name="datetaken" type="text" value="<?php echo $row['datetaken'] ?>"></td>
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><input name="address" type="number" value="<?php echo $row['address'] ?>"></td>
+                        <td><input name="address" type="text" value="<?php echo $row['address'] ?>"></td>
                     </tr>
                     <tr>
                         <td>File Number:</td>
@@ -53,31 +53,39 @@ if (!$query) {
                     </tr>
                     <tr>
                         <td>Description:</td>
-                        <td><textarea rows="4" cols="30" name ="description" value="<?php echo $row['description'] ?>"></textarea></td>
+                        <td><input type="text" name ="description" value="<?php echo $row['description'] ?>"></td>
+                    </tr>
+                    <tr>
+                        <td><input name="id" type="text" value="<?php echo $id ?>" hidden readonly></td>
                     </tr>
                     <tr>
                         <td><input class='btn btn-success' type="submit" value="Update"/></td>
-                        <!--<td><input type="submit" class='btn btn-danger'  value="Delete">&nbsp;&nbsp;</td>-->
-                    </form>
-                    <form>
-                        <td><form action='deleteConfirm.php' method="post">
-                                <input type="hidden" name="name" value="">
-                                <input type="submit" class='btn btn-danger' name="submit" value="Delete">
+                        </form>
+                        <td>
                             </form>
-                            </tr>
-
-                            </table>
-
-                    <br/>
-
+                    <tr>
+                        <td><input name="id" type="text" value="<?php echo $id ?>" hidden readonly></td>
+                    </tr>
                     <?php
-                    echo "<a class='btn btn-info' href='negativeList.php'>View Negatives</a>";
+                    echo "<td><a class='btn btn-danger' href=deleteNegative.php?id=", $row['id'], ">Delete</a></td>";
                     ?>
+            </form>
+            </tr>
 
-                    </div>
-                    </div>
-                    </div>
+            </td>
 
-                    <?php
-                    require_once 'includes/footer.php';
-                    
+
+            </table>
+
+            <br/>
+
+            <?php
+            echo "<a class='btn btn-info' href='negativeList.php'>View Negatives</a>";
+            ?>
+
+        </div>
+    </div>
+</div>
+
+<?php
+require_once 'includes/footer.php';
